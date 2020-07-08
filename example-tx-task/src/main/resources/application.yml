@@ -1,0 +1,27 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: example-tx-task
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: example
+    password: example
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/

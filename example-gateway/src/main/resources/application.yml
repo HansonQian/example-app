@@ -1,0 +1,26 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: example-gateway-server
+zuul:
+  retryable: true
+  routes:
+    example-tx-server:
+      path: /transaction/**
+      service-id: example-tx-server
+      strip-prefix: false
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/
+ribbon:
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 3
+  OkToRetryOnAllOperations: false
+  ConnectTimeout: 5000
+  ReadTimeout: 6000

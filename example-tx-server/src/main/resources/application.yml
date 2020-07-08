@@ -1,0 +1,30 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: example-tx-server
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:default
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: true
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/
+swagger:
+  enabled: true
+  title: example-tx-server
+  description: 基于可靠消息的最终一致性事务，对外提供接口
+  base-package: example.tx.server.web.controller
+  version: 1.0.0

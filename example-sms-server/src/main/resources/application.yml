@@ -1,0 +1,35 @@
+server:
+  port: 8093
+spring:
+  application:
+    name: example-sms-server
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:default
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: example
+    password: example
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/
+swagger:
+  enabled: true
+  title: example-sms-server
+  description: 对外提供短信接口
+  base-package: example.sms.server.web.controller
+  version: 1.0.0

@@ -49,7 +49,7 @@
         <okhttp.version>3.9.1</okhttp.version>
         <feign-okhttp.version>8.18.0</feign-okhttp.version>
         <feign-core.version>8.18.0</feign-core.version>
-        <guava.version>28.1-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <redisson.version>3.12.0</redisson.version>
         <swagger-spring-boot.version>1.9.1.RELEASE</swagger-spring-boot.version>
         <commons-io.version>2.6</commons-io.version>

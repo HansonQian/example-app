@@ -52,7 +52,7 @@
         <guava.version>28.1-jre</guava.version>
         <redisson.version>3.12.0</redisson.version>
         <swagger-spring-boot.version>1.9.1.RELEASE</swagger-spring-boot.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <commons-net.version>3.6</commons-net.version>
